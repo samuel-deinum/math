@@ -1,0 +1,32 @@
+.NumInput {
+  width: 50%;
+  height: 20%;
+  position: absolute;
+  display: inline-block;
+}
+
+.NumInputQuestion {
+  width: 80%;
+  height: 100%;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid black;
+  vertical-align: top;
+}
+
+.NumInputAnswer {
+  width: 19%;
+  height: 90%;
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.NumInputAnswer:focus,
+textarea {
+  outline: none !important;
+}

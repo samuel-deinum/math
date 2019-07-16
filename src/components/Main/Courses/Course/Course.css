@@ -1,0 +1,27 @@
+.Course {
+  height: 180px;
+  width: 280px;
+  display: inline-block;
+  background: lightblue;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  box-shadow: 0 10px 20px #ccc;
+  margin-right: 2%;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.Course img {
+  position: relative;
+  margin: none;
+  height: 70%;
+  width: 100%;
+}
+
+.CourseTitle {
+  position: relative;
+  margin: none;
+  width: 100%;
+  height: 30%;
+  font-size: 30px;
+}

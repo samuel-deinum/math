@@ -1,0 +1,14 @@
+.BotText {
+  position: absolute;
+}
+
+.BotTextSpeech {
+  width: 100%;
+  height: 25%;
+  border: 1px black solid;
+}
+
+.BotTextBot {
+  width: 100%;
+  height: 75%;
+}
