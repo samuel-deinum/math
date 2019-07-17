@@ -9,7 +9,7 @@ class WhiteBoard extends Component {
     ar: { w: 16, h: 9 },
     shapes: [],
     scenes: scenesArr,
-    sceneIndex: -1,
+    sceneIndex: 0,
     wbActions: [],
     multi: {}
   };
@@ -52,7 +52,7 @@ class WhiteBoard extends Component {
           keys.forEach(k => {
             mShapes[i][k] = a.changes[k];
           });
-          //Set ransition
+          //Set transition
           let transitionValue = "transform";
           transitionValue += " " + a.time + "s";
           if (a.cb) {
@@ -105,7 +105,7 @@ class WhiteBoard extends Component {
           //Delete All Shapes
           mShapes = [];
           //Update State with Deleted Shapes
-          this.setState({ shapes: mShapes });
+          this.setState({ shapes: mShapes, wbActions: [] });
           //Grap and Update Index
           let index = this.state.sceneIndex;
           index++;
@@ -142,7 +142,7 @@ class WhiteBoard extends Component {
           this.setState({ multi: mMulti });
           break;
         case "WB_ACTIONS":
-          this.setState({ wBActions: [...a.actions] });
+          this.setState({ wbActions: [...a.actions] });
           break;
         default:
           console.log("NOT A CORRECT ACTION");
@@ -168,12 +168,18 @@ class WhiteBoard extends Component {
   };
 
   render() {
+    //White Board Cursor
+    let mCursor = "auto";
+    if (this.state.wbActions.length > 0) {
+      mCursor = "pointer";
+    }
     //Implement WhiteBoard Dimentions
     const style = {
       width: "85vw",
       height: (85 * this.state.ar.h) / this.state.ar.w + "vw",
       maxHeight: "85vh",
-      maxWidth: (85 * this.state.ar.w) / this.state.ar.h + "vh"
+      maxWidth: (85 * this.state.ar.w) / this.state.ar.h + "vh",
+      cursor: mCursor
     };
     return (
       <div

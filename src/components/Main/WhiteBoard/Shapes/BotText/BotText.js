@@ -27,25 +27,39 @@ class BotText extends Component {
   animate = text => {
     //Reset Text
     this.setState({ text: "" });
+
+    const currentText = this.props.data.text;
+    //Grab and Set Time
+    let time = 1000 / 15;
+    if (this.props.data.time) {
+      time = (this.props.data.time * 1000) / currentText.length;
+    }
     //Loop Through Text
     let i = 0;
     const interval = setInterval(() => {
-      if (i >= this.props.data.text.length) {
+      if (i >= currentText.length) {
         clearInterval(interval);
         this.setState({ firstLineComplete: true, botHeight: 30 });
-      } else {
-        let mBotHeight = this.state.botHeight;
-        if (i % 8 === 0) {
-          mBotHeight = 27;
-        } else if (i % 4 === 0) {
-          mBotHeight = 33;
+        if (this.props.data.onComplete) {
+          this.props.update(this.props.data.onComplete);
         }
-        let mText = this.state.text;
-        mText += this.props.data.text.charAt(i);
-        this.setState({ text: mText, botHeight: mBotHeight });
-        i++;
+      } else {
+        if (currentText !== this.props.data.text) {
+          clearInterval(interval);
+        } else {
+          let mBotHeight = this.state.botHeight;
+          if (i % 8 === 0) {
+            mBotHeight = 27;
+          } else if (i % 4 === 0) {
+            mBotHeight = 33;
+          }
+          let mText = this.state.text;
+          mText += currentText.charAt(i);
+          this.setState({ text: mText, botHeight: mBotHeight });
+          i++;
+        }
       }
-    }, 1000 / 15);
+    }, time);
   };
 
   render() {
@@ -93,7 +107,6 @@ class BotText extends Component {
     };
 
     //Svgs Data
-
     const data = {
       type: "bot",
       x: 45,
@@ -105,11 +118,19 @@ class BotText extends Component {
     };
 
     return (
-      <div className="BotText" style={style}>
-        <div className="BotTextSpeech">
+      <div
+        className={p.side ? "BotTextSide" : "BotText"}
+        style={style}
+        onClick={
+          this.props.data.onClick
+            ? () => this.props.update(this.props.data.onClick)
+            : null
+        }
+      >
+        <div className={p.side ? "BotTextSpeechSide" : "BotTextSpeech"}>
           <span>{this.state.text}</span>
         </div>
-        <div className="BotTextBot">
+        <div className={p.side ? "BotTextBotSide" : "BotTextBot"}>
           <Svgs ar={{ w: 1, h: 1 }} data={data} />
         </div>
       </div>

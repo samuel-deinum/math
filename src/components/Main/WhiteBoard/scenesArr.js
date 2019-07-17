@@ -6,16 +6,95 @@ const arr = [
       info: {
         id: 1,
         component: "BotText",
-        text: "Hello There How Is it Going with You my name is bot",
+        text: "Hello There! Welcome to MATH WORLD",
         fontSize: 2,
+        time: 2,
         x: 30,
         y: 20,
         w: 50,
-        h: 50
+        h: 50,
+        onComplete: [
+          {
+            type: "WB_ACTIONS",
+            actions: [
+              { type: "WB_ACTIONS", actions: [] },
+              {
+                type: "CHANGE",
+                target: 1,
+                changes: {
+                  text: "In thie Session we will be learning Addition",
+                  onComplete: [
+                    {
+                      type: "CHANGE",
+                      target: 1,
+                      time: 1,
+                      changes: { x: 2, y: 2, scaleX: 0.75, scaleY: 0.75 }
+                    },
+                    {
+                      type: "ADD",
+                      info: {
+                        id: 2,
+                        component: "Svgs",
+                        type: "plus",
+                        x: 50,
+                        y: -50,
+                        heightOrgScale: 4
+                      },
+                      onComplete: [
+                        {
+                          type: "CHANGE",
+                          target: 2,
+                          time: 1,
+                          changes: { y: 30 },
+                          onComplete: [
+                            {
+                              type: "WB_ACTIONS",
+                              actions: [
+                                {
+                                  type: "CHANGE",
+                                  target: 1,
+                                  changes: {
+                                    text: "Let's begin with a simple example",
+                                    onComplete: [
+                                      {
+                                        type: "WB_ACTIONS",
+                                        actions: [{ type: "NEXT_SCENE" }]
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
       }
     }
   ],
+  /////////////////////////////////////////////
   [
+    {
+      type: "ADD",
+      info: {
+        id: 9,
+        component: "BotText",
+        fontSize: 2.5,
+        text: "Hello There",
+        x: -50,
+        y: 50,
+        h: 50,
+        scaleX: 0.5,
+        scaleY: 0.5
+      },
+      onComplete: [{ type: "CHANGE", target: 9, time: 1, changes: { x: 25 } }]
+    },
     {
       type: "ADD",
       info: {
@@ -28,27 +107,13 @@ const arr = [
         onClick: [
           {
             type: "CHANGE",
-            target: 1,
-            time: 1,
-            changes: { text: "YOU ARE COOL" }
-          },
-          {
-            type: "CHANGE",
             target: 10,
-            time: 1,
             changes: {
               type: "bot",
               onClick: [
                 {
                   type: "CHANGE",
-                  target: 1,
-                  time: 1,
-                  changes: { text: "VERY VERY COOL" }
-                },
-                {
-                  type: "CHANGE",
                   target: 10,
-                  time: 1,
                   changes: { onClick: null }
                 }
               ]
@@ -179,7 +244,7 @@ const arr = [
       onComplete: [{ type: "CHANGE", target: 12, time: 1, changes: { x: 65 } }]
     }
   ],
-  //ONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+  /////////////////////////////////////////////////////////////////////////////////
   [
     {
       type: "ADD",
