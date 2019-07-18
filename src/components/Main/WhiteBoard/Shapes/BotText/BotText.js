@@ -2,13 +2,15 @@ import React, { Component } from "react";
 
 import "./BotText.css";
 import Svgs from "../../../../../assets/Svgs/Svgs";
+import Svg from "../../../../../assets/Svgs/Svg";
 
 class BotText extends Component {
   state = {
     text: "",
     prevText: "",
     firstLineComplete: false,
-    botHeight: 30
+    botHeight: 30,
+    botHeightSide: 0
   };
 
   componentDidMount = () => {
@@ -66,8 +68,12 @@ class BotText extends Component {
     const p = { ...this.props.data };
 
     //Get Height and Width
+    let ar = 4 / 3;
+    if (p.side) {
+      ar = 10;
+    }
     const hValue = p.h;
-    const wValue = (((p.h * 4) / 3) * this.props.ar.h) / this.props.ar.w;
+    const wValue = (p.h * ar * this.props.ar.h) / this.props.ar.w;
     //Get X and Y
     const xValue = (p.x / wValue) * 100;
     const yValue = (p.y / hValue) * 100;
@@ -113,9 +119,13 @@ class BotText extends Component {
       y: this.state.botHeight,
       scaleX: 12,
       scaleY: 12,
-      rotate: 0,
       transition: "transform 0.5s"
     };
+
+    let svg = <Svgs ar={{ w: 1, h: 1 }} data={data} />;
+    if (p.side) {
+      svg = <Svg data={data} />;
+    }
 
     return (
       <div
@@ -130,9 +140,7 @@ class BotText extends Component {
         <div className={p.side ? "BotTextSpeechSide" : "BotTextSpeech"}>
           <span>{this.state.text}</span>
         </div>
-        <div className={p.side ? "BotTextBotSide" : "BotTextBot"}>
-          <Svgs ar={{ w: 1, h: 1 }} data={data} />
-        </div>
+        <div className={p.side ? "BotTextBotSide" : "BotTextBot"}>{svg}</div>
       </div>
     );
   }

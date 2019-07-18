@@ -9,7 +9,7 @@ class WhiteBoard extends Component {
     ar: { w: 16, h: 9 },
     shapes: [],
     scenes: scenesArr,
-    sceneIndex: 0,
+    sceneIndex: -1,
     wbActions: [],
     multi: {}
   };

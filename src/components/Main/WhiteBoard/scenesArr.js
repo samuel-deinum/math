@@ -50,6 +50,7 @@ const arr = [
                             {
                               type: "WB_ACTIONS",
                               actions: [
+                                { type: "WB_ACTIONS", actions: [] },
                                 {
                                   type: "CHANGE",
                                   target: 1,
@@ -85,15 +86,16 @@ const arr = [
       info: {
         id: 9,
         component: "BotText",
-        fontSize: 2.5,
+        fontSize: 3,
         text: "Hello There",
+        side: true,
         x: -50,
         y: 50,
-        h: 50,
+        h: 20,
         scaleX: 0.5,
         scaleY: 0.5
       },
-      onComplete: [{ type: "CHANGE", target: 9, time: 1, changes: { x: 25 } }]
+      onComplete: [{ type: "CHANGE", target: 9, time: 1, changes: { x: 0 } }]
     },
     {
       type: "ADD",
