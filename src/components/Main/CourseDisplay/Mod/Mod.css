@@ -1,0 +1,27 @@
+.Mod {
+  width: 80%;
+  margin: auto;
+  height: 50px;
+  margin-top: 2%;
+  background: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  text-decoration: none;
+  display: flex;
+  justify-items: center;
+  padding: 10px;
+}
+
+.Mod span {
+  display: inline-block;
+  color: black;
+  text-decoration: none;
+}
+
+.Img {
+  width: 80px;
+  height: 50px;
+  background: blue;
+  display: inline-block;
+  margin-left: 100px;
+}

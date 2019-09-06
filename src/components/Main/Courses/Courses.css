@@ -1,6 +1,4 @@
-.Courses {
-  position: relative;
-  width: 80%;
-  height: auto;
-  margin: auto;
+h1 {
+  margin-left: 5%;
+  font-size: 60px;
 }

@@ -5,8 +5,7 @@ import "./NavBar.css";
 const navBar = props => {
   return (
     <header className="NavBar">
-      <div className="NavBarLogo">MATHPRO</div>
-      <div className="NavBarIN">PROFILE</div>
+      <div className="NavBarLogo">MATH WORLD</div>
     </header>
   );
 };

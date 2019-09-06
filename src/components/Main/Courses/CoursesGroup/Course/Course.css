@@ -1,21 +1,15 @@
 .Course {
   height: 180px;
-  width: 280px;
+  width: 200px;
   display: inline-block;
-  background: lightblue;
+  background: darkblue;
   border-radius: 10px;
   border: 1px solid #eee;
   box-shadow: 0 10px 20px #ccc;
-  margin-right: 2%;
+  margin-right: 5%;
   margin-top: 20px;
   overflow: hidden;
-}
-
-.Course img {
-  position: relative;
-  margin: none;
-  height: 70%;
-  width: 100%;
+  padding: 10px;
 }
 
 .CourseTitle {
@@ -23,5 +17,6 @@
   margin: none;
   width: 100%;
   height: 30%;
-  font-size: 30px;
+  font-size: 15px;
+  color: white;
 }

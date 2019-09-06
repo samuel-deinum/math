@@ -2,13 +2,14 @@ import React, { Component } from "react";
 
 import "./WhiteBoard.css";
 import Shapes from "./Shapes/Shapes";
-import scenesArr from "./scenesArr";
+import testScenesArr from "./testScenesArr";
+import introExp from "./introExp";
 
 class WhiteBoard extends Component {
   state = {
     ar: { w: 16, h: 9 },
     shapes: [],
-    scenes: scenesArr,
+    scenes: testScenesArr,
     sceneIndex: -1,
     wbActions: [],
     multi: {}

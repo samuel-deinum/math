@@ -87,7 +87,7 @@ const arr = [
         id: 9,
         component: "BotText",
         fontSize: 3,
-        text: "Hello There",
+        text: "Click on the number above",
         side: true,
         x: -50,
         y: 50,

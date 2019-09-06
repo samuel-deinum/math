@@ -1,0 +1,26 @@
+.CoursesGroup {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  display: inline-block;
+  border: 1px solid #eee;
+  box-shadow: 0 10px 20px #ccc;
+  padding: 10px;
+}
+
+.Title {
+  width: 23%;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.Courses {
+  position: relative;
+  width: 73%;
+  height: auto;
+  margin: auto;
+  display: inline-block;
+}
